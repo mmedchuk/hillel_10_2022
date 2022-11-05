@@ -30,7 +30,7 @@ def generate_file(filename: Path, word: str) -> None:
 
 def file_info():
     print(f'Our search found {amount_lines} lines with query"{query}"')
-    print(f"file size is {asizeof.asizeof(GENERATED_REPLY_FILE)}")
+    print(f"file size is {asizeof.asizeof(names_list)}")
 
 
 for line in find_lines(ROCKYOU_FILENAME, query):
