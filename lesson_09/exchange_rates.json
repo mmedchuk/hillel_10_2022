@@ -1,0 +1,24 @@
+{"rates_to_usd":[
+    {
+        "from_": "eur",
+        "to_": "usd",
+        "index": 1.03    
+    },
+    {
+        "from_": "uah",
+        "to_": "usd",
+        "index": 0.027  
+    },
+    {
+        "from_": "usd",
+        "to_": "eur",
+        "index": 0.97
+    },
+    {
+        "from_": "usd",
+        "to_": "uah",
+        "index": 37.03 
+    }
+]
+
+}
