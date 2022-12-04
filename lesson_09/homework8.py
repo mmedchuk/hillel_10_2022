@@ -16,15 +16,16 @@ class Price:
             result_currency = self.currency
 
         elif self.currency != "usd" and other.currency == "usd":
-            result = self.amount * exchange_from(self.currency) + other.amount
+
+            result = self.amount * convert(self.currency) + other.amount
 
         elif self.currency == "usd" and other.currency != "usd":
-            result = self.amount + other.amount * exchange_from(other.currency)
+            result = self.amount + other.amount * convert(other.currency)
 
         else:
-            result = self.amount * exchange_from(
-                self.currency
-            ) + other.amount * exchange_from(other.currency)
+            result = self.amount * convert(self.currency) + other.amount * convert(
+                other.currency
+            )
 
         return f"{round(result, 2)} {result_currency}"
 
@@ -36,15 +37,16 @@ class Price:
             result_currency = self.currency
 
         elif self.currency != "usd" and other.currency == "usd":
-            result = self.amount * exchange_from(self.currency) - other.amount
+
+            result = self.amount * convert(self.currency) - other.amount
 
         elif self.currency == "usd" and other.currency != "usd":
-            result = self.amount - other.amount * exchange_from(other.currency)
+            result = self.amount - other.amount * convert(other.currency)
 
         else:
-            result = self.amount * exchange_from(
-                self.currency
-            ) - other.amount * exchange_from(other.currency)
+            result = self.amount * convert(self.currency) - other.amount * convert(
+                other.currency
+            )
 
         return f"{round(result, 2)} {result_currency}"
 
@@ -75,7 +77,10 @@ class ExchangeRateProcessor:
 
 
 PATH = Path(__file__).parent / "exchange_rates.json"
-exchange_from = ExchangeRateProcessor(PATH).get_exchange_rates
+
+exchange_rate_processor = ExchangeRateProcessor(PATH)
+convert = exchange_rate_processor.get_exchange_rates
+
 
 a = Price(10, "usd")
 b = Price(20, "uah")
