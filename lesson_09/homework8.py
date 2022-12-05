@@ -16,6 +16,7 @@ class Price:
             result_currency = self.currency
 
         elif self.currency != "usd" and other.currency == "usd":
+
             result = self.amount * convert(self.currency) + other.amount
 
         elif self.currency == "usd" and other.currency != "usd":
@@ -36,6 +37,7 @@ class Price:
             result_currency = self.currency
 
         elif self.currency != "usd" and other.currency == "usd":
+
             result = self.amount * convert(self.currency) - other.amount
 
         elif self.currency == "usd" and other.currency != "usd":
@@ -78,6 +80,7 @@ PATH = Path(__file__).parent / "exchange_rates.json"
 
 exchange_rate_processor = ExchangeRateProcessor(PATH)
 convert = exchange_rate_processor.get_exchange_rates
+
 
 a = Price(10, "usd")
 b = Price(20, "uah")
